@@ -1,0 +1,10 @@
+@media (width <=800px) {
+    .show-none {
+        display: none;
+    }
+}
+
+*{
+    scroll-behavior: smooth;
+    scroll-padding: 20px;
+}
