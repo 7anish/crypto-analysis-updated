@@ -1,42 +1,25 @@
-import React from 'react';
-import {
-  ChakraProvider,
-  Box,
-  Text,
-  Link,
-  VStack,
-  Code,
-  Grid,
-  theme,
-} from '@chakra-ui/react';
-import { ColorModeSwitcher } from './ColorModeSwitcher';
-import { Logo } from './Logo';
+import React from 'react'
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom'
+import Home from './component/Home'
+import Exchange from './component/Exchange'
+import Coins from './component/Coins'
+import Header from './component/Header'
+import Footer from './component/Footer'
 
-function App() {
+
+
+const App = () => {
   return (
-    <ChakraProvider theme={theme}>
-      <Box textAlign="center" fontSize="xl">
-        <Grid minH="100vh" p={3}>
-          <ColorModeSwitcher justifySelf="flex-end" />
-          <VStack spacing={8}>
-            <Logo h="40vmin" pointerEvents="none" />
-            <Text>
-              Edit <Code fontSize="xl">src/App.js</Code> and save to reload.
-            </Text>
-            <Link
-              color="teal.500"
-              href="https://chakra-ui.com"
-              fontSize="2xl"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learn Chakra
-            </Link>
-          </VStack>
-        </Grid>
-      </Box>
-    </ChakraProvider>
-  );
+    <Router>
+    {/* <Header /> */}
+      <Routes>
+        <Route path={'/'} element={<Home />}></Route>
+        <Route path={'/exchange'} element={<Exchange />}></Route>
+        <Route path={'/coins'} element={<Coins />}></Route>
+      </Routes>
+      {/* <Footer /> */}
+    </Router>
+  )
 }
 
-export default App;
+export default App

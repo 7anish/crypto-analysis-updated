@@ -17,7 +17,13 @@ export const ColorModeSwitcher = props => {
       marginLeft="2"
       onClick={toggleColorMode}
       icon={<SwitchIcon />}
+      pos={'fixed'}
+      top={4}
+      right={4}
+      zIndex={'100'}
       {...props}
+      display={['none','grid']}
+      placeContent={'center'}
     />
   );
 };
