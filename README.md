@@ -1,68 +1,39 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Cripzz - Cryptocurrency Tracking Website
 
-## Available Scripts
+Cripzz is a web application designed to track cryptocurrency prices and exchanges. It provides users with real-time data on various cryptocurrencies along with interactive graphs for different time intervals.
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **Real-time Data**: Cripzz fetches live data from the CoinGecko API to provide users with up-to-date information on cryptocurrency prices.
+- **Interactive Graphs**: Users can visualize the price trends of cryptocurrencies over different time intervals such as 1 day, 7 days, 30 days, and 1 year using Chart.js library.
+- **Detailed Information**: Cripzz offers detailed information about each cryptocurrency, including market cap, trading volume, circulating supply, and more.
+- **User-friendly Interface**: The website is designed with a clean and intuitive interface to ensure ease of use for users.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Technologies Used
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+- **React**: Cripzz is built using React, a popular JavaScript library for building user interfaces.
+- **API Integration**: The website integrates with the CoinGecko API to fetch real-time data.
+- **Charting Library**: Interactive graphs are implemented using Chart.js, a JavaScript library for creating responsive and customizable charts.
+- **Vercel**: The website is deployed on Vercel, a platform for deploying serverless functions and static websites.
 
-### `npm test`
+## Usage
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run the application locally:
 
-### `npm run build`
+1. Clone this repository.
+2. Install dependencies using `npm install`.
+3. Start the development server using `npm start`.
+4. Open `http://localhost:3000` in your web browser.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Contributing
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Contributions are welcome! If you have any ideas for improvements or feature requests, please open an issue or submit a pull request.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## License
 
-### `npm run eject`
+This project is licensed under the [MIT License](LICENSE).
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Acknowledgments
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- The developers of the CoinGecko API for providing cryptocurrency data.
+- The creators of React and Chart.js, and other open-source libraries used in the development of this website.
