@@ -4,7 +4,7 @@ Cripzz is a web application designed to track cryptocurrency prices and exchange
 
 ## Features
 
-<<<<<<< HEAD
+
 - **User-friendly Interface**: The website is designed with a clean and intuitive interface to ensure ease of use for users.
 
 
