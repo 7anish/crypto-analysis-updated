@@ -54,7 +54,7 @@ const Chartview = ({ arr=[] , days }) => {
     <Line
       options={{
         responsive: true,
-        Legend : {display : false}
+         legend: "price",
       }}
       data={data}
     />

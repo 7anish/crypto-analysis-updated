@@ -39,7 +39,7 @@ const Exchangecard = ({ name, rank, image, price, change, id }) => {
       <Td>₹{` ${price}`}</Td>
       <Td className='show-none'><Text color={(change < 0) ? 'red.500' : 'green'} display={'flex'} justifyContent={'start'} alignItems={'center'}>{change}<FaPercent />
       </Text></Td>
-      <Td className='show-none'><Button alignSelf={'end'} w={'30%'} h={'50px'} ><Link to={`./${id}`}><FaChevronRight /></Link></Button></Td>
+      <Td><Button alignSelf={'end'} w={'30%'} h={'50px'} ><Link to={`./${id}`}><FaChevronRight /></Link></Button></Td>
     </Tr>
   )
 }
@@ -88,7 +88,7 @@ const Coins = () => {
                 <Th>Name</Th>
                 <Th>Price</Th>
                 <Th className='show-none'>%change</Th>
-                <Th className='show-none'>Details</Th>
+                <Th >Details</Th>
               </Tr>
             </Thead>
             <Tbody>
