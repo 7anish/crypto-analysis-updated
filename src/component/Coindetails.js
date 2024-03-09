@@ -45,7 +45,7 @@ const Coindetails = () => {
   }
   return (
     (loding) ? <Loader /> :
-      <Stack w={'100%'} h={['auto']} flexDirection={['column']}>
+      <Stack w={'100%'} h={'auto'} flexDirection={'column'}>
         <Details name={data.id} img={data.image.large}
           price={data.market_data.current_price.inr}
           ch_24={data.market_data.price_change_percentage_24h_in_currency.inr}
@@ -82,7 +82,7 @@ const Details = ({ name, img, price, ch_24, ch_7d, ch_30d, ch_1y, max_s, cr_s, m
   return (
     <Stack
       w={'full'}
-      h={'70vh'}
+      h={'auto'}
       flexDirection={['column', 'row']}
       p={['20px', '50px 70px']}
       justifyContent={'start'}

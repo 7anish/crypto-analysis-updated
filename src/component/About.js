@@ -9,7 +9,7 @@ const Aboutsection = ({ direction ,heading, para, img  }) => {
         <Stack w={'full'} h={['auto', '80vh']} flexDirection={['column', `${direction}` ]}>
             <VStack gap={'20px'} alignItems={'start'} justifyContent={'center'} p={'30px'} w={['full', '70%']} h={['auto', '100%']}>
                 <Heading>{heading}</Heading>
-                <Text pr={['20px' , '70px']} textAlign={'justify'}>{para}</Text>
+                <Text pr={['sm' , '70px']} textAlign={'justify'}>{para}</Text>
                 <Button colorScheme='purple'>Learn More</Button>
             </VStack>
             <HStack justifyContent={'center'} alignItems={'center'} p={['20px', '50px']} size={['xs', 'sm']} w={['full', '53%']} h={['auto', '100%']}>

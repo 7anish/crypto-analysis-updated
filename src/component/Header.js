@@ -1,4 +1,4 @@
-import { Box, Button, HStack, Heading, Text, VStack, useDisclosure, useMediaQuery } from '@chakra-ui/react'
+import { Box, Button, HStack, Heading, Stack, Text, VStack, useDisclosure, useMediaQuery } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BiMenuAltLeft } from 'react-icons/bi'
@@ -11,10 +11,11 @@ import {
   DrawerOverlay,
   DrawerContent,
 } from '@chakra-ui/react'
+import { GrBitcoin } from 'react-icons/gr'
 
 const Headeright = () => {
   return (<HStack
-  className='horizontal-menu-bar'
+    className='horizontal-menu-bar'
     spacing={'15px'}
   >
     <Text fontWeight={'700'} transition={'all .3s'} _hover={{
@@ -83,25 +84,25 @@ const Menubar = () => {
 }
 
 const Header = () => {
-  
+
   const [isLargerThan900] = useMediaQuery('(min-width: 900px)')
 
   return (
     <HStack
+      borderRadius={'0 0 20px 20px'}
       w={'full'}
       h={'10vh'}
       pos={'sticky'}
       zIndex={'10'}
       justifyContent={'space-between'}
-      p={['0 10px', '0 80px']}
+      alignItems={'center'}
+      p={['0 30px', '0 80px']}
       bgColor={'purple.600'}
       position={'sticky'}
       top={0}
       left={0}
     >
-      <Box>
-        <Heading>Market<Text display={'inline'} color={'white'} te>View</Text></Heading>
-      </Box>
+      <GrBitcoin fontSize={'50px'} color={'white'} />
       {isLargerThan900 ? <Headeright /> : <Menubar />}
     </HStack>
   )

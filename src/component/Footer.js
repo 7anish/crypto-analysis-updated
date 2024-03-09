@@ -4,10 +4,11 @@ import React from 'react'
 const Footer = () => {
   return (
     <Stack zIndex={'10'}
+    borderRadius={'20px 20px 0 0'}
      mt={'10px'}
       flexDirection={'row'}
       p={['0 30px', '0 80px']}
-      w={'full'} h={'15vh'}
+      w={'full'} h={['13vh','15vh']}
       bgColor={'purple.600'}
       justifyContent={'space-between'} alignItems={['start']}>
       <VStack

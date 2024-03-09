@@ -22,8 +22,8 @@ const Home = () => {
           <Button  w={['fit-content','150px']} colorScheme='purple' variant={'outline'} ><Link to={'/exchange'}>Exchanges</Link></Button>
         </HStack>
       </VStack>
-      <Box p={['20px', '50px']} size={['xs', 'sm']} w={['full', '53%']} h={['auto', '100%']}>
-        <Image animation={animation} src={img}></Image>
+      <Box display={'grid'} placeContent={'center'} p={['20px', '50px']} size={['xs', 'sm']} w={['full', '53%']} h={['auto', '100%']}>
+        <Image objectFit={'contain'} animation={animation} src={img}></Image>
       </Box>
     </Stack>
   )
