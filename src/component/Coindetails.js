@@ -12,13 +12,15 @@ import view from './json file/marketchart.json'
 
 // import { FaLink } from "react-icons/fa6";
 
+import { key } from '../index'
+
 
 
 const Coindetails = () => {
   const params = useParams();
   const [loding, setloding] = useState(true)
   const [data, setdata] = useState([])
-  const [error, seterror] = useState(false);
+  const [error, seterror] = useState(true);
   const [days, setdays] = useState('24h');
   const [marketChart, setmarketChart] = useState([])
 
@@ -27,11 +29,12 @@ const Coindetails = () => {
     const fetchcoindetails = async () => {
       try {
         const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/${params.id}`)
-        const { data: chatrdatas } = await axios.get(`https://api.coingecko.com/api/v3/coins/${params.id}/market_chart?vs_currency=inr&days=${days}`)
+        const { data: chatrdatas } = await axios.get(`https://api.coingecko.com/api/v3/coins/${params.id}/market_chart?vs_currency=inr&days=${days}${key}`)
         setmarketChart(chatrdatas.prices)
         setdata(data);
         setloding(false)
       } catch (e) {
+        console.log(e)
         seterror(true)
         setloding(false)
       }

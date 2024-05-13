@@ -21,6 +21,7 @@ import {
 
 import Error from './Error'
 import { Link } from 'react-router-dom'
+import { key } from '../index'
 
 
 
@@ -48,31 +49,28 @@ const Exchangecard = ({ name, rank, image, price, change, id }) => {
 const Coins = () => {
   const [loding, setloding] = useState(true)
   const [coinlist, setcoinlist] = useState([])
-  const [error, seterror] = useState(false)
+  const [error, seterror] = useState(true)
   const [page, setpage] = useState(1)
-  const [ertype, setertype] = useState('')
 
   useEffect(() => {
     const fetchcoins = async () => {
       try {
-        const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=${page}&sparkline=false&locale=en`)
+        const { data } = await axios.get(`https://api.coingecko.com/api/v3/coins/markets?vs_currency=inr&order=market_cap_desc&per_page=100&page=${page}&sparkline=false&locale=en${key}`)
         setcoinlist(data)
         setloding(false)
       }
       catch (er) {
+        console.log(er)
         seterror(true)
         setloding(false)
       }
     }
-
-
     fetchcoins()
   }, [coinlist])
 
   if (error == true) {
     return <Error />
   }
-
 
   return (
 

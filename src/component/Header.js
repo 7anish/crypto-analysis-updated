@@ -14,27 +14,28 @@ import {
 import { GrBitcoin } from 'react-icons/gr'
 
 const Headeright = () => {
-  return (<HStack
+  return (
+  <HStack
     className='horizontal-menu-bar'
-    spacing={'15px'}
+    spacing={'40px'}
   >
-    <Text fontWeight={'700'} transition={'all .3s'} _hover={{
-      color: "white"
+    <Text fontWeight={'700'} color={'white'} transition={'all .3s'} _hover={{
+      color: "purple.600"
     }}><Link to={'/'}>Home</Link></Text>
-    <Text fontWeight={'700'} transition={'all .3s'} _hover={{
-      color: "white"
+    <Text fontWeight={'700'} color={'white'} transition={'all .3s'} _hover={{
+      color: "purple.600"
     }}><Link to={'/exchange'}>Exchange</Link></Text>
-    <Text fontWeight={'700'} transition={'all .3s'} _hover={{
-      color: "white"
+    <Text fontWeight={'700'} color={'white'} transition={'all .3s'} _hover={{
+      color: "purple.600"
     }}><Link to={'/coins'}>Coins</Link></Text>
-    <Text fontWeight={'700'} transition={'all .3s'} _hover={{
-      color: "white"
+    <Text fontWeight={'700'} color={'white'} transition={'all .3s'} _hover={{
+      color: "purple.600"
     }}><Link to={'/about'}>About</Link></Text>
-    <Text fontWeight={'700'} transition={'all .3s'} _hover={{
-      color: "white"
+    <Text fontWeight={'700'} color={'white'} transition={'all .3s'} _hover={{
+      color: "purple.600"
     }}><Link to={'/contact'}>Contact</Link></Text>
-    <Button bgColor={'white.300'}><Link to={'/login'}>Login</Link></Button>
-    <Button colorScheme='purple'><Link to={'/singnup'}>Sing up</Link></Button>
+    <Button display={'none'} bgColor={'white.300'}><Link to={'/login'}>Login</Link></Button>
+    <Button display={'none'} colorScheme='purple'><Link to={'/singnup'}>Sing up</Link></Button>
   </HStack>)
 }
 
@@ -71,7 +72,7 @@ const Menubar = () => {
           </VStack>
         </DrawerBody>
         <DrawerFooter>
-          <HStack
+          <HStack display={'none'}
             w={'full'}
             justifyContent={'center'}>
             <Button colorScheme='purple' onClick={onClose} ><Link to={'/login'}>Login</Link></Button>
@@ -89,7 +90,6 @@ const Header = () => {
 
   return (
     <HStack
-      borderRadius={'0 0 20px 20px'}
       w={'full'}
       h={'10vh'}
       pos={'sticky'}
@@ -97,7 +97,7 @@ const Header = () => {
       justifyContent={'space-between'}
       alignItems={'center'}
       p={['0 30px', '0 80px']}
-      bgColor={'purple.600'}
+      background={'#0a080c'}
       position={'sticky'}
       top={0}
       left={0}

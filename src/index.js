@@ -19,3 +19,5 @@ root.render(
   </StrictMode>
 );
 
+
+export const key = '&x_cg_demo_api_key=CG-S4YdinvcHLj2e61WJV8K9ycW';

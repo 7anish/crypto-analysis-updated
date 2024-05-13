@@ -13,16 +13,16 @@ import {
     TableContainer,
 } from '@chakra-ui/react'
 
-import { FaStar, FaExternalLinkAlt, FaChevronRight } from "react-icons/fa";
+import { FaStar, FaExternalLinkAlt } from "react-icons/fa";
 
 import Error from './Error'
-import { Link } from 'react-router-dom'
+import { key } from '../index'
 
 
 
 
 
-const Exchangecard = ({ id, name, rank, image, volume, url, trust }) => {
+const Exchangecard = ({ name, rank, image, volume, url, trust }) => {
     return (
         <Tr m={'10px 0 '} fontWeight={'bold'} cursor={'pointer'}>
             <Td className='show-none'>{rank}</Td>
@@ -39,27 +39,27 @@ const Exchangecard = ({ id, name, rank, image, volume, url, trust }) => {
 const Exchange = () => {
     const [loding, setloding] = useState(true)
     const [exchangelist, setexchangelist] = useState([])
-    const [error, seterror] = useState(false)
-    useEffect(() => {
+    const [error, seterror] = useState(true)
+
+
+    useEffect( () => {
         const fetchcoins = async () => {
             try {
-                const { data } = await axios.get('https://api.coingecko.com/api/v3/exchanges')
+                const { data } = await axios.get(`https://api.coingecko.com/api/v3/exchanges?${key}`)
                 setexchangelist(data)
                 setloding(false)
             }
             catch (er) {
+                console.log(er)
                 seterror(true)
                 setloding(false)
             }
         }
-
-
         fetchcoins()
-    }, [exchangelist]
-    )
+    }, [exchangelist] )
 
-    if (error == true) {
-        return <Error />
+    if (error) {
+        return <Error  />
     }
     else {
 

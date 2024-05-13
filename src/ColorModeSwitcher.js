@@ -22,8 +22,10 @@ export const ColorModeSwitcher = props => {
       right={4}
       zIndex={'100'}
       {...props}
-      display={['none','grid']}
+      display={'none'}
       placeContent={'center'}
+      bgColor={'purple.500'}
+      borderRadius={'50%'}
     />
   );
 };

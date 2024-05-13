@@ -3,12 +3,15 @@ import React from 'react'
 
 const Footer = () => {
   return (
-    <Stack zIndex={'10'}
-    borderRadius={'20px 20px 0 0'}
+    <>
+    <Stack 
+    translateY={'50px'}
+    zIndex={'10'}
+    position={'relative'}
      mt={'10px'}
       flexDirection={'row'}
       p={['0 30px', '0 80px']}
-      w={'full'} h={['13vh','15vh']}
+      w={'full'} h={['18vh','12vh']}
       bgColor={'purple.600'}
       justifyContent={'space-between'} alignItems={['start']}>
       <VStack
@@ -29,6 +32,16 @@ const Footer = () => {
         <a target='blank' href="https://www.linkedin.com/"><i class="fa fa-linkedin"></i></a>
       </HStack>
     </Stack>
+    <Text 
+    zIndex={11}
+    fontWeight={'bolder'}
+    position={'absolute'}
+    left={['30%' , '46%']}
+    bottom={'0'}
+    >Made with <span style={{
+      color:'red'
+    }}>&#9829;</span> by Anish</Text>
+    </>
   )
 }
 
