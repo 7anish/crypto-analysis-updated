@@ -14,14 +14,13 @@ import {
 } from '@chakra-ui/react'
 
 import {
-  FaPercent
-  , FaChevronRight,
-  FaChevronLeft
-} from "react-icons/fa";
+  FaPercent, FaChevronRight,FaChevronLeft,FaCaretDown,FaCaretUp } from "react-icons/fa";
 
 import Error from './Error'
 import { Link } from 'react-router-dom'
 import { key } from '../index'
+
+import data from './json file/coinlist.json'
 
 
 
@@ -32,13 +31,16 @@ import { key } from '../index'
 
 
 const Exchangecard = ({ name, rank, image, price, change, id }) => {
+  var sing ;
+  change >= 0 ? sing = <FaCaretUp /> : sing = <FaCaretDown /> ;
+
   return (
     <Tr m={'10px 0 '} fontWeight={'bold'} cursor={'pointer'}>
       <Td className='show-none'>{rank}</Td>
       <Td><Image src={image} w={['20px', '40px']} aspectRatio={'1'}></Image></Td>
       <Td w={['50px', '100px']}>{name}</Td>
       <Td>₹{` ${price}`}</Td>
-      <Td className='show-none'><Text color={(change < 0) ? 'red.500' : 'green'} display={'flex'} justifyContent={'start'} alignItems={'center'}>{change}<FaPercent />
+      <Td className='show-none'><Text color={(change < 0) ? 'red.500' : 'green'} display={'flex'} justifyContent={'start'} alignItems={'center'}>{sing}{change}<FaPercent />
       </Text></Td>
       <Td><Button alignSelf={'end'} w={'30%'} h={'50px'} ><Link to={`./${id}`}><FaChevronRight /></Link></Button></Td>
     </Tr>
@@ -49,7 +51,7 @@ const Exchangecard = ({ name, rank, image, price, change, id }) => {
 const Coins = () => {
   const [loding, setloding] = useState(true)
   const [coinlist, setcoinlist] = useState([])
-  const [error, seterror] = useState(true)
+  const [error, seterror] = useState(false)
   const [page, setpage] = useState(1)
 
   useEffect(() => {

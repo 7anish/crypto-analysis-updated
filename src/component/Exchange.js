@@ -17,6 +17,7 @@ import { FaStar, FaExternalLinkAlt } from "react-icons/fa";
 
 import Error from './Error'
 import { key } from '../index'
+import data from './json file/excchangelist.json'
 
 
 
@@ -39,7 +40,7 @@ const Exchangecard = ({ name, rank, image, volume, url, trust }) => {
 const Exchange = () => {
     const [loding, setloding] = useState(true)
     const [exchangelist, setexchangelist] = useState([])
-    const [error, seterror] = useState(true)
+    const [error, seterror] = useState(false)
 
 
     useEffect( () => {

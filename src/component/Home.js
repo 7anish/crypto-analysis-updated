@@ -17,6 +17,7 @@ const Home = () => {
   return (
     <>
     <Stack 
+    id='home'
     position={'relative'}
     w={'full'} 
     h={['auto', '100vh']} 

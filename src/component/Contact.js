@@ -15,7 +15,7 @@ const Contact = () => {
     }
     return (
 
-        <Stack id='contact' color={'white'} bgColor={'#0a080c'} w={'full'} h={['auto', '80vh']} flexDirection={['column', 'row']} >
+        <Stack id='contact' color={'white'} bgColor={'#000'} w={'full'} h={['auto', '80vh']} flexDirection={['column', 'row']} >
 
             <VStack gap={'20px'} alignItems={'start'} justifyContent={'center'} p={['30px' , '50px']} w={['full', '50%']} h={['auto', '100%']} alignItems={'stretch'}>
                 <Heading>Contact form</Heading>

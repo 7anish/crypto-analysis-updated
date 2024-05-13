@@ -1,16 +1,14 @@
-import { Box, HStack, Stack, VStack, Image, Text, Heading, Button, Divider, } from '@chakra-ui/react';
-import React, { useEffect, useState } from 'react'
+import { Box, HStack, Stack, VStack, Image, Text, Heading, Button, Divider, Progress, Input ,InputGroup ,InputLeftAddon } from '@chakra-ui/react';
+import React, { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Loader from './Loader';
 import axios from 'axios';
 import Error from './Error';
-import { FaPercent, FaCaretUp, FaCaretDown, FaLink , FaNewspaper } from 'react-icons/fa';
+import { FaPercent, FaCaretUp, FaCaretDown, FaLink, FaNewspaper, FaGlobe, FaGithub } from 'react-icons/fa';
 import Chartview from './Chart';
 
 import datae from './json file/bitcoin.json'
 import view from './json file/marketchart.json'
-
-// import { FaLink } from "react-icons/fa6";
 
 import { key } from '../index'
 
@@ -20,7 +18,7 @@ const Coindetails = () => {
   const params = useParams();
   const [loding, setloding] = useState(true)
   const [data, setdata] = useState([])
-  const [error, seterror] = useState(true);
+  const [error, seterror] = useState(false);
   const [days, setdays] = useState('24h');
   const [marketChart, setmarketChart] = useState([])
 
@@ -48,7 +46,7 @@ const Coindetails = () => {
   }
   return (
     (loding) ? <Loader /> :
-      <Stack w={'100%'} h={'auto'} flexDirection={'column'}>
+      <VStack w={'100%'} h={'auto'}>
         <Details name={data.id} img={data.image.large}
           price={data.market_data.current_price.inr}
           ch_24={data.market_data.price_change_percentage_24h_in_currency.inr}
@@ -61,26 +59,36 @@ const Coindetails = () => {
           symbol={data.symbol}
           website={data.links.homepage[0]}
           whitepaper={data.links.homepage[1]}
-          />
-
+          Github={data.links.repos_url.github[0]}
+        />
         <HStack justifyContent={'center'} alignItems={'center'} >
           <Button colorScheme='purple' variant={'ghost'} onClick={() => { setdays('24h') }}>24h</Button>
           <Button colorScheme='purple' variant={'ghost'} onClick={() => { setdays('7d') }}>7d</Button>
           <Button colorScheme='purple' variant={'ghost'} onClick={() => { setdays('30d') }}>30d</Button>
           <Button colorScheme='purple' variant={'ghost'} onClick={() => { setdays('1y') }}>1y</Button>
         </HStack>
-
         <Chartview arr={marketChart} days={days} />
-      </Stack>
+      </VStack>
   )
 }
 
 
-const Details = ({ name, img, price, ch_24, ch_7d, ch_30d, ch_1y, max_s, cr_s, mk_c, vol, symbol, website , whitepaper }) => {
+const Details = ({ name, img, price, ch_24, ch_7d, ch_30d, ch_1y, max_s, cr_s, mk_c, vol, symbol, website, whitepaper, Github }) => {
   let sing24 = (ch_24 > 0) ? <FaCaretUp /> : <FaCaretDown />;
   let sing7d = (ch_7d > 0) ? <FaCaretUp /> : <FaCaretDown />;
   let sing30d = (ch_30d > 0) ? <FaCaretUp /> : <FaCaretDown />;
   let sing1y = (ch_1y > 0) ? <FaCaretUp /> : <FaCaretDown />;
+
+  const crypto = useRef() 
+  const rupee = useRef()
+
+  const convertToInr = ()=>{
+    rupee.current.value=crypto.current.value*price;
+  }
+
+  const convertToCr = ()=>{
+    crypto.current.value = rupee.current.value/price;
+  }
 
   return (
     <Stack
@@ -104,22 +112,41 @@ const Details = ({ name, img, price, ch_24, ch_7d, ch_30d, ch_1y, max_s, cr_s, m
         <Divider h={'5px'} />
         <Heading alignSelf={'start'} size={'sm'}>Max supply - {`${max_s} ${symbol}`}</Heading>
         <Divider h={'5px'} />
-        <Heading display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}  size={'sm'}>7d Chnage- <Text color={(ch_7d < 0 ? 'red' : 'green')} display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}> {sing7d} {ch_7d} <FaPercent /></Text></Heading>
+        <Heading display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'} size={'sm'}>7d Chnage- <Text color={(ch_7d < 0 ? 'red' : 'green')} display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}> {sing7d} {ch_7d} <FaPercent /></Text></Heading>
         <Divider h={'5px'} />
-        <Heading display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}  size={'sm'}>30d Chnage-  <Text color={(ch_30d < 0 ? 'red' : 'green')} display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}>{sing30d}{ch_30d} <FaPercent /></Text></Heading>
+        <Heading display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'} size={'sm'}>30d Chnage-  <Text color={(ch_30d < 0 ? 'red' : 'green')} display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}>{sing30d}{ch_30d} <FaPercent /></Text></Heading>
         <Divider h={'5px'} />
-        <Heading display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}  size={'sm'}>1y Chnage -  <Text color={(ch_1y < 0 ? 'red' : 'green')} display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}>{sing1y}{ch_1y}  <FaPercent /></Text></Heading>
+        <Heading display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'} size={'sm'}>1y Chnage -  <Text color={(ch_1y < 0 ? 'red' : 'green')} display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}>{sing1y}{ch_1y}  <FaPercent /></Text></Heading>
         <Divider h={'5px'} />
       </VStack>
       <VStack
+        justifyContent={'center'}
+        alignItems={'center'}
         spacing={'10px'}
-        mt={'50px'}
+        // mt={'50px'}
+        // bgColor={'wheat'}
+        w={['full', '50%']}
+        h={['auto', '100%']}
       >
         <Heading>Addtional info-</Heading>
-        <Heading display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}  size={'sm'}><Text  display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}><FaLink /> <a href={website} target='blank'>{website}</a></Text></Heading>
+        <Heading mt={'20px'} display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'} size={'sm'}><Text display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}><FaGlobe /> &nbsp; <a href={website} target='blank'>Website</a></Text></Heading>
         <Divider h={'5px'} />
-        <Heading display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}  size={'sm'}><Text  display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}><FaNewspaper /> {' '} <a href={whitepaper} target='blank'>White paper</a></Text></Heading>
+        <Heading display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'} size={'sm'}><Text display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}><FaNewspaper />  &nbsp; <a href={whitepaper} target='blank'>White paper</a></Text></Heading>
         <Divider h={'5px'} />
+        <Heading display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'} size={'sm'}><Text display={'flex'} justifyContent={'start'} alignItems={'center'} alignSelf={'start'}><FaGithub />  &nbsp; <a href={Github} target='blank'>Github</a></Text></Heading>
+        <Divider h={'5px'} />
+        <Heading>Converter</Heading>
+        <InputGroup>
+          <InputLeftAddon>{symbol.toUpperCase()}</InputLeftAddon>
+          <Input w={'50%'} type='number' placeholder={`Enter Number Of ${symbol.toUpperCase()}`} ref={crypto}  onChange={convertToInr}/>
+        </InputGroup>
+        <Divider h={'5px'} />
+        <InputGroup>
+          <InputLeftAddon>INR</InputLeftAddon>
+          <Input w={'50%'}  type='number' placeholder='Enter INR' ref={rupee} onChange={convertToCr} />
+        </InputGroup>
+
+
       </VStack>
     </Stack>
   )

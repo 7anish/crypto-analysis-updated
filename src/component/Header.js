@@ -22,7 +22,7 @@ const Headeright = () => {
   >
     <Text fontWeight={'700'} color={'white'} transition={'all .3s'} _hover={{
       color: "purple.600"
-    }}><HashLink to={'/'}>Home</HashLink></Text>
+    }}><HashLink to={'/#home'}>Home</HashLink></Text>
     <Text fontWeight={'700'} color={'white'} transition={'all .3s'} _hover={{
       color: "purple.600"
     }}><Link to={'/exchange'}>Exchange</Link></Text>
@@ -65,7 +65,7 @@ const Menubar = () => {
             alignItems={'stretch'}
             spacing={'8px'}
           >
-            <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><Link to={'/'}>Home</Link></Button>
+            <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><Link to={'/#home'}>Home</Link></Button>
             <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><Link to={'/coins'}>Coins</Link></Button>
             <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><Link to={'/exchange'}>Exchange</Link></Button>
             <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><HashLink to={'/#about'}>About</HashLink></Button>

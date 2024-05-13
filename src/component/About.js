@@ -6,7 +6,7 @@ import vid2 from '../assets/Miden.mp4.mp4'
 
 const Aboutsection = ({ direction, heading, para, vid }) => {
     return (
-        <Stack bgColor={'#0a080c'} w={'full'} h={['auto', '80vh']} flexDirection={['column', `${direction}`]} color={'white'}>
+        <Stack bgColor={'#000'} w={'full'} h={['auto', '80vh']} flexDirection={['column', `${direction}`]} color={'white'}>
             <VStack gap={'20px'} alignItems={'start'} justifyContent={'center'} p={'30px'} w={['full', '60%']} h={['auto', '100%']} marginLeft={['', '60px']}>
                 <Heading>{heading}</Heading>
                 <Text pr={['sm', '70px']} textAlign={'justify'}>{para}</Text>
