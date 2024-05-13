@@ -12,6 +12,7 @@ import {
   DrawerContent,
 } from '@chakra-ui/react'
 import { GrBitcoin } from 'react-icons/gr'
+import { HashLink } from 'react-router-hash-link'
 
 const Headeright = () => {
   return (
@@ -21,7 +22,7 @@ const Headeright = () => {
   >
     <Text fontWeight={'700'} color={'white'} transition={'all .3s'} _hover={{
       color: "purple.600"
-    }}><Link to={'/'}>Home</Link></Text>
+    }}><HashLink to={'/'}>Home</HashLink></Text>
     <Text fontWeight={'700'} color={'white'} transition={'all .3s'} _hover={{
       color: "purple.600"
     }}><Link to={'/exchange'}>Exchange</Link></Text>
@@ -30,10 +31,10 @@ const Headeright = () => {
     }}><Link to={'/coins'}>Coins</Link></Text>
     <Text fontWeight={'700'} color={'white'} transition={'all .3s'} _hover={{
       color: "purple.600"
-    }}><Link to={'/about'}>About</Link></Text>
+    }}><HashLink to={'/#about'}>About</HashLink></Text>
     <Text fontWeight={'700'} color={'white'} transition={'all .3s'} _hover={{
       color: "purple.600"
-    }}><Link to={'/contact'}>Contact</Link></Text>
+    }}><HashLink to={'/#contact'}>Contact</HashLink></Text>
     <Button display={'none'} bgColor={'white.300'}><Link to={'/login'}>Login</Link></Button>
     <Button display={'none'} colorScheme='purple'><Link to={'/singnup'}>Sing up</Link></Button>
   </HStack>)
@@ -67,8 +68,8 @@ const Menubar = () => {
             <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><Link to={'/'}>Home</Link></Button>
             <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><Link to={'/coins'}>Coins</Link></Button>
             <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><Link to={'/exchange'}>Exchange</Link></Button>
-            <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><Link to={'/about'}>About</Link></Button>
-            <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><Link to={'/contact'}>Contact</Link></Button>
+            <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><HashLink to={'/#about'}>About</HashLink></Button>
+            <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><HashLink to={'/#contact'}>Contact</HashLink></Button>
           </VStack>
         </DrawerBody>
         <DrawerFooter>

@@ -2,6 +2,9 @@ import { Box, Heading, Stack, VStack, Text, Image, HStack, Button, keyframes } f
 import React from 'react'
 import img from '../assets/img.webp'
 import { Link } from 'react-router-dom'
+import Contact from './Contact'
+import About from './About'
+import vid from '../assets/zkevm720p.mp4'
 
 
 const motion = keyframes`
@@ -12,12 +15,13 @@ const motion = keyframes`
 const animation = `${motion} 4s linear infinite `
 const Home = () => {
   return (
+    <>
     <Stack 
     position={'relative'}
     w={'full'} 
     h={['auto', '100vh']} 
-    background={'rgb(11, 9, 12)'}
-    background={'linear-gradient(180deg, rgba(11, 9, 12, 1) 1%, rgba(57, 25, 93, 1) 48%, rgba(46, 24, 83, 1) 68%, rgba(11, 9, 12, 1) 100%)'}
+    background={'rgb(57,25,93)'}
+    background={'linear-gradient(135deg, rgba(57,25,93,1) 25%, rgba(0,0,0,1) 40%);'}
     flexDirection={['column', 'row']}
     overflow={'hidden'}
     margin={0}
@@ -29,20 +33,18 @@ const Home = () => {
         <Text paddingRight={['20px', '100px']} textAlign={'justify'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum placeat odio ex earum ipsa officia, labore repudiandae possimus recusandae, necessitatibus debitis? Sint facilis culpa perferendis voluptas eveniet suscipit sapiente reprehenderit!</Text>
         <HStack gap={'10px'} flexDirection={'row-reverse'}>
           <Button  w={['fit-content','150px']} colorScheme='purple'><Link to={'/coins'}>Explore coins</Link></Button>
-          <Button  w={['fit-content','150px']} colorScheme='purple' variant={'outline'} ><Link to={'/exchange'}>Exchanges</Link></Button>
+          <Button  w={['fit-content','150px']} colorScheme='purple' variant={'outline'}><Link to={'/exchange'}>Exchanges</Link></Button>
         </HStack>
       </VStack>
       <Box display={'grid'} placeContent={'center'} p={['20px', '50px']} size={['xs', 'sm']} w={['full', '53%']} h={['auto', '100%']}>
-        <Image  
-         objectFit={'contain'}  
-         
-         position={'absolute'}
-         top={'-20%'}
-         right={0}
-         w={'100%'}
-         ></Image>
+      <video loop muted autoPlay width={'500px'}>
+      <source src={vid}  />
+      </video>
       </Box>
     </Stack>
+    <About />
+    <Contact />
+    </>
   )
 }
 

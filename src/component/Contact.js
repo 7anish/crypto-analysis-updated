@@ -15,14 +15,19 @@ const Contact = () => {
     }
     return (
 
-        <Stack w={'full'} h={['auto', '80vh']} flexDirection={['column', 'row']} >
+        <Stack id='contact' color={'white'} bgColor={'#0a080c'} w={'full'} h={['auto', '80vh']} flexDirection={['column', 'row']} >
 
             <VStack gap={'20px'} alignItems={'start'} justifyContent={'center'} p={['30px' , '50px']} w={['full', '50%']} h={['auto', '100%']} alignItems={'stretch'}>
                 <Heading>Contact form</Heading>
                 <Input placeholder={'Name'} type='text' focusBorderColor='purple.400' ref={name} required></Input>
                 <Input placeholder={'Email'} type='email' focusBorderColor='purple.400' ref={email} required ></Input>
                 <Input h={'100px'} placeholder={'Message'} type='text' focusBorderColor='purple.400' ref={mess} required ></Input>
-                <Button w={'50%'} alignSelf={'end'} type='sumbit' colorScheme='purple' onClick={sumbit}>Send</Button>
+                <Button  _hover={{
+                    bgColor:'white',
+                    color:'purple.600',
+                    translateX:'10px',
+                }} 
+                transition={'all .3s'} w={'30%'} alignSelf={'end'} type='sumbit' colorScheme='purple' onClick={sumbit}>Send</Button>
             </VStack>
             <HStack justifyContent={'center'} alignItems={'center'} p={['20px', '50px']} size={['xs', 'sm']} w={['full', '53%']} h={['auto', '100%']}>
                 <Image p={['20px', '50px']} src={img5} />
