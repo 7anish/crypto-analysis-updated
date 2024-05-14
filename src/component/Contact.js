@@ -2,6 +2,8 @@ import { Heading, Input,HStack, VStack, Button, Stack , Image} from '@chakra-ui/
 import React  from 'react'
 import img5 from '../assets/contact-us-fotor-bg-remover-2024051331213.png'
 import { useRef } from 'react'
+import { animation } from './Home'
+import { motion } from 'framer-motion'
 
 
 const Contact = () => {
@@ -29,8 +31,8 @@ const Contact = () => {
                 }} 
                 transition={'all .3s'} w={'30%'} alignSelf={'end'} type='sumbit' colorScheme='purple' onClick={sumbit}>Send</Button>
             </VStack>
-            <HStack justifyContent={'center'} alignItems={'center'} p={['20px', '50px']} size={['xs', 'sm']} w={['full', '53%']} h={['auto', '100%']}>
-                <Image p={['20px', '50px']} src={img5} />
+            <HStack  justifyContent={'center'} alignItems={'center'} p={['20px', '50px']} size={['xs', 'sm']} w={['full', '53%']} h={['auto', '100%']}>
+                <Image  p={['20px', '50px']} src={img5} />
             </HStack>
         </Stack>
     )

@@ -5,15 +5,44 @@ import { Link } from 'react-router-dom'
 import Contact from './Contact'
 import About from './About'
 import vid from '../assets/zkevm720p.mp4'
+import { motion } from 'framer-motion'
+
+export const animation ={
+  h1:{
+    initial:{
+      x: '-100%',
+      opacity : 0
+    },
+    whileInView:{
+      x:'0',
+      opacity:'1'
+    }
+  },
+  h2:{
+    initial:{
+      y: '-100%',
+      opacity : 0
+    },
+    whileInView:{
+      y:'0',
+      opacity:'1'
+    }
+  },
+  div:{
+    initial:{
+      x: '100%',
+      opacity : 0
+    },
+    whileInView:{
+      x:'0',
+      opacity:'1'
+    }
+  }
+}
 
 
-const motion = keyframes`
-0%{ transform: translateY(0%)}
-50%{ transform: translateY(5%)}
-100%{ transform: translateY(0%)}
-`;
-const animation = `${motion} 4s linear infinite `
 const Home = () => {
+
   return (
     <>
     <Stack 
@@ -28,17 +57,17 @@ const Home = () => {
     margin={0}
     >
 
-      <VStack zIndex={5} color={'white'} paddingLeft={'30px'} marginLeft={'20px'} gap={'15px'} alignItems={'start'} justifyContent={'center'} p={'30px'} w={['full', '60%']} h={['auto', '100%']}>
-        <Heading size={['md', '3xl']}>Lorem ipsum dolor sit amet consectetur</Heading>
-        <Heading size={['xs', 'sm']}>Lorem ipsum dolor sit amet consectetr</Heading>
-        <Text paddingRight={['20px', '100px']} textAlign={'justify'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum placeat odio ex earum ipsa officia, labore repudiandae possimus recusandae, necessitatibus debitis? Sint facilis culpa perferendis voluptas eveniet suscipit sapiente reprehenderit!</Text>
+      <VStack zIndex={5} color={'white'} paddingLeft={'30px'} marginLeft={['0','20px']} gap={'15px'} alignItems={['center','start']} justifyContent={'center'} p={'30px'} w={['full', '60%']} h={['auto', '100%']}>
+        <Heading as={motion.h1} {...animation.h1} textAlign={['center','start']} size={['lg', '3xl']} >All You Want To Know Is Here..</Heading>
+        <Heading as={motion.h2} {...animation.h2} size={['xs', 'sm']}>Lorem ipsum dolor sit amet consectetr</Heading>
+        <Text as={motion.para} {...animation.h2} paddingRight={['0', '100px']} textAlign={['center','justify']}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum placeat odio ex earum ipsa officia, labore repudiandae </Text>
         <HStack gap={'10px'} flexDirection={'row-reverse'}>
-          <Button  w={['fit-content','150px']} colorScheme='purple'><Link to={'/coins'}>Explore coins</Link></Button>
-          <Button  w={['fit-content','150px']} colorScheme='purple' variant={'outline'}><Link to={'/exchange'}>Exchanges</Link></Button>
+          <Button as={motion.button} {...animation.h1}  w={['fit-content','150px']} colorScheme='purple'><Link to={'/coins'}>Explore coins</Link></Button>
+          <Button as={motion.button} {...animation.h1} w={['fit-content','150px']} colorScheme='purple' variant={'outline'}><Link to={'/exchange'}>Exchanges</Link></Button>
         </HStack>
       </VStack>
       <Box display={'grid'} placeContent={'center'} p={['20px', '50px']} size={['xs', 'sm']} w={['full', '53%']} h={['auto', '100%']}>
-      <video loop muted autoPlay width={'500px'}>
+      <video  loop muted autoPlay width={'500px'}>
       <source src={vid}  />
       </video>
       </Box>

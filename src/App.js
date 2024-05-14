@@ -13,6 +13,8 @@ import Coindetails from './component/Coindetails'
 import About from './component/About'
 import Contact from './component/Contact'
 import Chartview from './component/Chart'
+import Market from './component/Market'
+import ScrollToTop from './component/ScrollToTop'
 
 
 
@@ -21,6 +23,7 @@ const App = () => {
   return (
 
     <Router>
+    <ScrollToTop />
     <Header />
       <Routes>
         <Route path={'/'} element={<Home />}></Route>
@@ -29,9 +32,9 @@ const App = () => {
         <Route path={'/singnup'} element={<Singup />}></Route>
         <Route path={'/coins'} element={<Coins />}></Route>
         <Route path='/coins/:id' element={<Coindetails />} />
-        <Route path={'/about'} element={<About />}></Route>
-        <Route path={'/contact'} element={<Contact />}></Route>
         <Route path={'/ch'} element={<Chartview />}></Route>
+        <Route path={'/market'} element={<Market />}></Route>
+
       </Routes>
       <Footer />
     </Router>

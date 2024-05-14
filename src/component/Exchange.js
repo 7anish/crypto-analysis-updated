@@ -18,6 +18,7 @@ import { FaStar, FaExternalLinkAlt } from "react-icons/fa";
 import Error from './Error'
 import { key } from '../index'
 import data from './json file/excchangelist.json'
+import { useLocation } from 'react-router-dom'
 
 
 

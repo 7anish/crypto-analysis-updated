@@ -2,12 +2,14 @@ import { Heading, Stack, VStack, Text, Button, Image, HStack } from '@chakra-ui/
 import React from 'react'
 import vid1 from '../assets/pos.mp4'
 import vid2 from '../assets/Miden.mp4.mp4'
+import { motion } from 'framer-motion'
+import { animation } from './Home'
 
 
 const Aboutsection = ({ direction, heading, para, vid }) => {
     return (
-        <Stack bgColor={'#000'} w={'full'} h={['auto', '80vh']} flexDirection={['column', `${direction}`]} color={'white'}>
-            <VStack gap={'20px'} alignItems={'start'} justifyContent={'center'} p={'30px'} w={['full', '60%']} h={['auto', '100%']} marginLeft={['', '60px']}>
+        <Stack overflow={'hidden'} bgColor={'#000'} w={'full'} h={['auto', '80vh']} flexDirection={['column', `${direction}`]} color={'white'}>
+            <VStack  as={motion.div} {...animation.h1} gap={'20px'} alignItems={'start'} justifyContent={'center'} p={'30px'} w={['full', '60%']} h={['auto', '100%']} marginLeft={['', '60px']}>
                 <Heading>{heading}</Heading>
                 <Text pr={['sm', '70px']} textAlign={'justify'}>{para}</Text>
                 <Button colorScheme='purple' _hover={{
