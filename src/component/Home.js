@@ -1,4 +1,4 @@
-import { Box, Heading, Stack, VStack, Text, Image, HStack, Button, keyframes } from '@chakra-ui/react'
+import { Box, Heading, Stack, VStack, Text, Image, HStack, Button, keyframes, Center } from '@chakra-ui/react'
 import React from 'react'
 import img from '../assets/img.webp'
 import { Link } from 'react-router-dom'
@@ -6,6 +6,8 @@ import Contact from './Contact'
 import About from './About'
 import vid from '../assets/zkevm720p.mp4'
 import { motion } from 'framer-motion'
+import { FaArrowCircleRight } from "react-icons/fa";
+
 
 export const animation ={
   h1:{
@@ -50,27 +52,47 @@ const Home = () => {
     position={'relative'}
     w={'full'} 
     h={['auto', '100vh']} 
-    background={'rgb(57,25,93)'}
-    background={'linear-gradient(135deg, rgba(57,25,93,1) 25%, rgba(0,0,0,1) 40%);'}
-    flexDirection={['column', 'row']}
+    background={'rgb(11, 9, 12)'}
+    background={'linear-gradient(180deg, rgba(11, 9, 12, 1) 1%, rgba(57, 25, 93, 1) 48%, rgba(46, 24, 83, 1) 68%, rgba(11, 9, 12, 1) 90%)'}
+    flexDirection={['column']}
     overflow={'hidden'}
-    margin={0}
-    >
+    color={'white'}
+    justifyContent={'start'}
+    pt={['20px','100px']}
+    pb={['20px' , '0']}
+    alignItems={'center'}
+    gap={'40px'}
+    paddingInline={['15px','70px']}
 
-      <VStack zIndex={5} color={'white'} paddingLeft={'30px'} marginLeft={['0','20px']} gap={'15px'} alignItems={['center','start']} justifyContent={'center'} p={'30px'} w={['full', '60%']} h={['auto', '100%']}>
-        <Heading as={motion.h1} {...animation.h1} textAlign={['center','start']} size={['lg', '3xl']} >All You Want To Know Is Here..</Heading>
-        <Heading as={motion.h2} {...animation.h2} size={['xs', 'sm']}>Lorem ipsum dolor sit amet consectetr</Heading>
-        <Text as={motion.para} {...animation.h2} paddingRight={['0', '100px']} textAlign={['center','justify']}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum placeat odio ex earum ipsa officia, labore repudiandae </Text>
-        <HStack gap={'10px'} flexDirection={'row-reverse'}>
-          <Button as={motion.button} {...animation.h1}  w={['fit-content','150px']} colorScheme='purple'><Link to={'/coins'}>Explore coins</Link></Button>
-          <Button as={motion.button} {...animation.h1} w={['fit-content','150px']} colorScheme='purple' variant={'outline'}><Link to={'/exchange'}>Exchanges</Link></Button>
-        </HStack>
-      </VStack>
-      <Box display={'grid'} placeContent={'center'} p={['20px', '50px']} size={['xs', 'sm']} w={['full', '53%']} h={['auto', '100%']}>
-      <video  loop muted autoPlay width={'500px'}>
-      <source src={vid}  />
-      </video>
-      </Box>
+    >
+    <Link to={'/coins'}><Button as={motion.h1} {...animation.h1} transition={'all .3s'}  _hover={{
+      bgColor : 'rgba(255, 255, 255, .5)'
+    }} display={['none','flex']} bgColor={'rgba(255, 255, 255, .3)'}>Visit Market&nbsp;<FaArrowCircleRight bgColor={'white'} color='white' fontFamily={'20px'} /></Button></Link>
+    <Heading as={motion.h1} {...animation.h1} textAlign={['center','start']}   fontSize={['50px','80px']}>All You Want To Know Is Here..</Heading>
+    <Text as={motion.h1} {...animation.h1} fontWeight={['500','600']} fontSize={['14px','18px']} textAlign={'center'} w={['300px','600px']} h={'100px'} color={'rgba(255, 255, 255, .7)'}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam labore, iste illum expedita quisquam, Lorem</Text>
+    <Stack alignItems={'center'} gap={'30px'} flexDirection={['column', 'row']}>
+    <Link  to={'/exchange'}><Box as={motion.div} {...animation.div} p={'30px'} borderRadius={'12px'} transition={'all .3s'} bgColor={'rgba(255, 255, 255, .2)'} w={['330px','400px']} h={'200px'} _hover={{
+        bgColor : 'rgba(255, 255, 255, .3)',
+        width : '410px',
+      }}>
+        <Heading fontSize={'30px'}>Exchange</Heading>
+        <Text display={'inline-flex'} alignItems={'flex-end'}  fontWeight={'500'} mt={'25px'} color={'rgba(255, 255, 255, .7)'}>Lorem ipsum dolor sit Lorem ipsum dolor sit amet.<FaArrowCircleRight fontSize={'35px'} /></Text>
+      </Box></Link>
+      <Link to={'/coins'}><Box as={motion.div} {...animation.div} p={'30px'} borderRadius={'12px'} transition={'all .3s'} bgColor={'rgba(255, 255, 255, .2)'} w={['330px','400px']} h={'200px'} _hover={{
+        bgColor : 'rgba(255, 255, 255, .3)',
+        width : '410px',
+      }}>
+        <Heading fontSize={'30px'}>Coins</Heading>
+        <Text display={'inline-flex'} alignItems={'flex-end'}  fontWeight={'500'} mt={'25px'} color={'rgba(255, 255, 255, .7)'}>Lorem ipsum dolor sit Lorem ipsum dolor sit amet.<FaArrowCircleRight fontSize={'35px'} /></Text>
+      </Box></Link>
+      <Link  to={'/market'}><Box as={motion.div} {...animation.div} p={'30px'} borderRadius={'12px'} transition={'all .3s'} bgColor={'rgba(255, 255, 255, .2)'} w={['330px','400px']} h={'200px'} _hover={{
+        bgColor : 'rgba(255, 255, 255, .3)',
+        width : '410px',
+      }}>
+        <Heading fontSize={'30px'}>Fear & Greed index</Heading>
+        <Text display={'inline-flex'} alignItems={'flex-end'}  fontWeight={'500'} mt={'25px'} color={'rgba(255, 255, 255, .7)'}>Lorem ipsum dolor sit Lorem ipsum dolor sit amet.<FaArrowCircleRight fontSize={'35px'} /></Text>
+      </Box></Link>
+    </Stack>
     </Stack>
     <About />
     <Contact />

@@ -107,7 +107,7 @@ const Header = () => {
       top={0}
       left={0}
     >
-      <GrBitcoin fontSize={'50px'} color={'white'} />
+    <Link to={'/'}><GrBitcoin fontSize={'50px'} color={'white'} /></Link>
       {isLargerThan900 ? <Headeright /> : <Menubar />}
     </HStack>
   )
