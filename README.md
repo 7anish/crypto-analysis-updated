@@ -1,43 +1,13 @@
 # Cripzz - Cryptocurrency Tracking Website
 
-Cripzz is a web application designed to track cryptocurrency prices and exchanges. It provides users with real-time data on various cryptocurrencies along with interactive graphs for different time intervals. (https://crpizz.vercel.app/)
+Cripzz is a web application designed to track cryptocurrency prices and exchanges. It provides users with real-time data on various cryptocurrencies along with interactive graphs for different time intervals.
 
 ## Features
 
-
 - **User-friendly Interface**: The website is designed with a clean and intuitive interface to ensure ease of use for users.
-
-
-
-
-![Alt text](./src/assets/readimg2.png)
-
-
-
-
-
 - **Real-time Data**: Cripzz fetches live data from the CoinGecko API to provide users with up-to-date information on cryptocurrency prices.
-
-
-
-
-![Alt text](./src/assets/readimg3.png)
-
-
-
-
 - **Interactive Graphs**: Users can visualize the price trends of cryptocurrencies over different time intervals such as 1 day, 7 days, 30 days, and 1 year using Chart.js library.
-
-
-
-
-![Alt text](./src/assets/readimg4.png)
-
-
-
-
 - **Detailed Information**: Cripzz offers detailed information about each cryptocurrency, including market cap, trading volume, circulating supply, and more.
-
 
 ## Technologies Used
 
@@ -50,12 +20,19 @@ Cripzz is a web application designed to track cryptocurrency prices and exchange
 
 To run the application locally:
 
-1. Clone this repository.
-2. Install dependencies using `npm install`.
-3. Start the development server using `npm start`.
+1. Clone this repository:
+    ```sh
+    git clone https://github.com/7anish/crypto-analysis-updated.git
+    ```
+2. Install dependencies:
+    ```sh
+    npm install
+    ```
+3. Start the development server:
+    ```sh
+    npm start
+    ```
 4. Open `http://localhost:3000` in your web browser.
-
-
 
 ## Contributing
 
@@ -65,3 +42,15 @@ Contributions are welcome! If you have any ideas for improvements or feature req
 
 - The developers of the CoinGecko API for providing cryptocurrency data.
 - The creators of React and Chart.js, and other open-source libraries used in the development of this website.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For any inquiries, please contact [your-email@example.com](mailto:your-email@example.com).
+
+## Live Demo
+
+Check out the live demo: [Cripzz](https://crpizz.vercel.app/)
