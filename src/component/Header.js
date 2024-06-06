@@ -45,6 +45,13 @@ const Headeright = () => {
 
 const Menubar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+
+  const Clicker= ()=>{
+    setTimeout(()=>{
+      onClose()
+    },500)
+  }
+
   return (<>
     <Button className='menu-bar-button'
       onClick={onOpen}
@@ -72,8 +79,8 @@ const Menubar = () => {
             <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><Link to={'/coins'}>Coins</Link></Button>
             <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><Link to={'/market'}>Market</Link></Button>
             <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><Link to={'/exchange'}>Exchange</Link></Button>
-            <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><HashLink to={'/#about'}>About</HashLink></Button>
-            <Button colorScheme='purple' variant={'ghost'} onClick={onClose} ><HashLink to={'/#contact'}>Contact</HashLink></Button>
+            <Button colorScheme='purple' variant={'ghost'} onClick={Clicker} ><HashLink to={'/#about'}>About</HashLink></Button>
+            <Button colorScheme='purple' variant={'ghost'} onClick={Clicker} ><HashLink to={'/#contact'}>Contact</HashLink></Button>
           </VStack>
         </DrawerBody>
         <DrawerFooter>

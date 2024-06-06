@@ -14,7 +14,6 @@ import About from './component/About'
 import Contact from './component/Contact'
 import Chartview from './component/Chart'
 import Market from './component/Market'
-import ScrollToTop from './component/ScrollToTop'
 
 
 
@@ -23,7 +22,6 @@ const App = () => {
   return (
 
     <Router>
-    <ScrollToTop />
     <Header />
       <Routes>
         <Route path={'/'} element={<Home />}></Route>

@@ -4,7 +4,6 @@ import img from '../assets/img.webp'
 import { Link } from 'react-router-dom'
 import Contact from './Contact'
 import About from './About'
-import vid from '../assets/zkevm720p.mp4'
 import { motion } from 'framer-motion'
 import { FaArrowCircleRight } from "react-icons/fa";
 
