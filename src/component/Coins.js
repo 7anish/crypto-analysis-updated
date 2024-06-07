@@ -1,6 +1,6 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { Image, Text, Button, } from '@chakra-ui/react'
+import React, { useEffect, useRef, useState } from 'react'
+import { Image, Text, Button, Box, InputGroup,Input,InputRightAddon, HStack, Divider } from '@chakra-ui/react'
 import Loader from './Loader'
 import {
   Table,
@@ -14,11 +14,14 @@ import {
 } from '@chakra-ui/react'
 
 import {
-  FaPercent, FaChevronRight,FaChevronLeft,FaCaretDown,FaCaretUp } from "react-icons/fa";
+  FaPercent, FaChevronRight, FaChevronLeft, FaCaretDown, FaCaretUp
+} from "react-icons/fa";
 
 import Error from './Error'
 import { Link } from 'react-router-dom'
 import { key } from '../index'
+import { FaSearch } from "react-icons/fa";
+
 
 import data from './json file/coinlist.json'
 
@@ -31,8 +34,8 @@ import data from './json file/coinlist.json'
 
 
 const Exchangecard = ({ name, rank, image, price, change, id }) => {
-  var sing ;
-  change >= 0 ? sing = <FaCaretUp /> : sing = <FaCaretDown /> ;
+  var sing;
+  change >= 0 ? sing = <FaCaretUp /> : sing = <FaCaretDown />;
 
   return (
     <Tr m={'10px 0 '} fontWeight={'bold'} cursor={'pointer'}>
@@ -53,6 +56,15 @@ const Coins = () => {
   const [coinlist, setcoinlist] = useState([])
   const [error, seterror] = useState(false)
   const [page, setpage] = useState(1)
+
+  const coinser = useRef()
+
+  const redirect = ()=>{
+    console.log(coinser)
+    let coin = (coinser.current.value) ; 
+    let coin1 = coin.toLowerCase();
+    window.location.href = `./coins/${coin1}`
+  }
 
   useEffect(() => {
     const fetchcoins = async () => {
@@ -78,6 +90,18 @@ const Coins = () => {
 
     <>
       {loding ? <Loader /> : <>
+      
+        <HStack w={'100%'} h={['10vh','7vh']}  alignItems={'center'} justifyContent={['center','end']} paddingInline={'30px'}>
+          <Box w={['100%','30%']}>
+          <InputGroup>
+            <Input ref={coinser}  placeholder='Search Your Coin' type='text' variant={'outline'} focusBorderColor='black'  w={'90%'} ></Input>
+            <InputRightAddon  bgColor={'#F5F5F5'} onClick={redirect}><FaSearch /></InputRightAddon>
+          </InputGroup>
+          </Box>
+        </HStack>
+        <Divider/>
+
+
         <TableContainer
           p={['0', '10px 30px']}>
           <Table size={['sm', 'lg']} alignItems={'Center'}>

@@ -1,4 +1,4 @@
-import { Box, Button, HStack, Heading, Stack, Text, VStack, useDisclosure, useMediaQuery } from '@chakra-ui/react'
+import { Box, Button, HStack, Heading, Input, InputGroup, InputRightAddon, Stack, Text, VStack, useDisclosure, useMediaQuery } from '@chakra-ui/react'
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { BiMenuAltLeft } from 'react-icons/bi'
@@ -13,6 +13,8 @@ import {
 } from '@chakra-ui/react'
 import { GrBitcoin } from 'react-icons/gr'
 import { HashLink } from 'react-router-hash-link'
+import { FaSearch } from "react-icons/fa";
+
 
 const Headeright = () => {
   return (

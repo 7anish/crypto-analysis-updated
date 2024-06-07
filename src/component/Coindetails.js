@@ -11,6 +11,7 @@ import datae from './json file/bitcoin.json'
 import view from './json file/marketchart.json'
 
 import { key } from '../index'
+import Notfound from './Notfound';
 
 
 
@@ -21,6 +22,7 @@ const Coindetails = () => {
   const [error, seterror] = useState(false);
   const [days, setdays] = useState('24h');
   const [marketChart, setmarketChart] = useState([])
+  const [isfound , setisfound] = useState(true)
 
 
   useEffect(() => {
@@ -32,18 +34,29 @@ const Coindetails = () => {
         setdata(data);
         setloding(false)
       } catch (e) {
-        console.log(e)
+        console.log(e.message)
+        if(e.message == 'Request failed with status code 404'){
+          setisfound(false)
+        }
+        else{
         seterror(true)
         setloding(false)
+        }
       }
     }
     fetchcoindetails();
 
   }, [days, marketChart, data])
 
+  if(!isfound){
+    return <Notfound />
+  }
+
   if (error == true) {
     return <Error />
   }
+
+
   return (
     (loding) ? <Loader /> :
       <VStack w={'100%'} h={'auto'}>
