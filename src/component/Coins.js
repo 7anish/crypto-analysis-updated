@@ -52,7 +52,7 @@ const Exchangecard = ({ name, rank, image, price, change, id }) => {
 
 
 const Coins = () => {
-  const [loding, setloding] = useState(false)
+  const [loding, setloding] = useState(true)
   const [coinlist, setcoinlist] = useState([])
   const [error, seterror] = useState(false)
   const [page, setpage] = useState(1)
@@ -71,7 +71,7 @@ const Coins = () => {
         setloding(false)
       }
     }
-    // fetchcoins()
+    fetchcoins()
   }, [coinlist])
 
   if (error == true) {
