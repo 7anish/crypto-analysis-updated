@@ -20,10 +20,10 @@ import {
 import Error from './Error'
 import { Link } from 'react-router-dom'
 import { key } from '../index'
-import { FaSearch } from "react-icons/fa";
 
 
 import data from './json file/coinlist.json'
+import Search from './Search'
 
 
 
@@ -52,19 +52,11 @@ const Exchangecard = ({ name, rank, image, price, change, id }) => {
 
 
 const Coins = () => {
-  const [loding, setloding] = useState(true)
+  const [loding, setloding] = useState(false)
   const [coinlist, setcoinlist] = useState([])
   const [error, seterror] = useState(false)
   const [page, setpage] = useState(1)
 
-  const coinser = useRef()
-
-  const redirect = ()=>{
-    console.log(coinser)
-    let coin = (coinser.current.value) ; 
-    let coin1 = coin.toLowerCase();
-    window.location.href = `./coins/${coin1}`
-  }
 
   useEffect(() => {
     const fetchcoins = async () => {
@@ -79,7 +71,7 @@ const Coins = () => {
         setloding(false)
       }
     }
-    fetchcoins()
+    // fetchcoins()
   }, [coinlist])
 
   if (error == true) {
@@ -90,17 +82,8 @@ const Coins = () => {
 
     <>
       {loding ? <Loader /> : <>
-      
-        <HStack w={'100%'} h={['10vh','7vh']}  alignItems={'center'} justifyContent={['center','end']} paddingInline={'30px'}>
-          <Box w={['100%','30%']}>
-          <InputGroup>
-            <Input ref={coinser}  placeholder='Search Your Coin' type='text' variant={'outline'} focusBorderColor='black'  w={'90%'} ></Input>
-            <InputRightAddon  bgColor={'#F5F5F5'} onClick={redirect}><FaSearch /></InputRightAddon>
-          </InputGroup>
-          </Box>
-        </HStack>
+      <Search />
         <Divider/>
-
 
         <TableContainer
           p={['0', '10px 30px']}>
