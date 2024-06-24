@@ -24,6 +24,7 @@ import { key } from '../index'
 
 import data from './json file/coinlist.json'
 import Search from './Search'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -34,18 +35,19 @@ import Search from './Search'
 
 
 const Exchangecard = ({ name, rank, image, price, change, id }) => {
+  const navigate = useNavigate()
   var sing;
   change >= 0 ? sing = <FaCaretUp /> : sing = <FaCaretDown />;
 
   return (
-    <Tr m={'10px 0 '} fontWeight={'bold'} cursor={'pointer'}>
+    <Tr m={'10px 0 '} fontWeight={'bold'} cursor={'pointer'} onClick={()=> navigate(`./${id}`)}>
       <Td className='show-none'>{rank}</Td>
       <Td><Image src={image} w={['20px', '40px']} aspectRatio={'1'}></Image></Td>
       <Td w={['50px', '100px']}>{name}</Td>
       <Td>₹{` ${price}`}</Td>
       <Td className='show-none'><Text color={(change < 0) ? 'red.500' : 'green'} display={'flex'} justifyContent={'start'} alignItems={'center'}>{sing}{change}<FaPercent />
       </Text></Td>
-      <Td><Button alignSelf={'end'} w={'30%'} h={'50px'} ><Link to={`./${id}`}><FaChevronRight /></Link></Button></Td>
+      {/* <Td><Button alignSelf={'end'} w={'30%'} h={'50px'} ><Link to={`./${id}`}><FaChevronRight /></Link></Button></Td> */}
     </Tr>
   )
 }
@@ -95,7 +97,7 @@ const Coins = () => {
                 <Th>Name</Th>
                 <Th>Price</Th>
                 <Th className='show-none'>%change</Th>
-                <Th >Details</Th>
+                {/* <Th >Details</Th> */}
               </Tr>
             </Thead>
             <Tbody>
